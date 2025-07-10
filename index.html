@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Warstock Cache & Carry Clone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo-banner">
+      <h1>WARSTOCK CACHE & CARRY</h1>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-category="all">All</button>
+    <button class="tab" data-category="planes">Planes</button>
+    <button class="tab" data-category="helicopters">Helicopters</button>
+    <button class="tab" data-category="land">Land</button>
+    <button class="tab" data-category="service">Service</button>
+    <button class="tab" data-category="other">Other</button>
+  </nav>
+
+  <main>
+    <div class="sort-bar">
+      <h2>Exclusive Stock</h2>
+      <button>Sort by Price</button>
+    </div>
+
+    <section class="product-grid">
+      <article class="product-card" data-category="land">
+        <div class="product-image">
+          <img src="images/tank.jpg" alt="Tank" />
+          <div class="sale-sticker">SALE</div>
+        </div>
+        <div class="product-info">
+          <h3>Rhino Tank</h3>
+          <p><span class="old-price">$2,500,000</span> $1,750,000</p>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="planes">
+        <div class="product-image">
+          <img src="images/plane.jpg" alt="Plane" />
+        </div>
+        <div class="product-info">
+          <h3>Hydra Jet</h3>
+          <p>$3,000,000</p>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="helicopters">
+        <div class="product-image">
+          <img src="images/helicopter.jpg" alt="Helicopter" />
+        </div>
+        <div class="product-info">
+          <h3>Buzzard Attack Chopper</h3>
+          <p>$1,750,000</p>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="land">
+        <div class="product-image">
+          <img src="images/car.jpg" alt="Car" />
+        </div>
+        <div class="product-info">
+          <h3>Armored Kuruma</h3>
+          <p>$525,000</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
