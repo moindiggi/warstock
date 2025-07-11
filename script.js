@@ -1,18 +1,31 @@
-const tabs = document.querySelectorAll('.tab');
-const cards = document.querySelectorAll('.product-card');
+async function loadVehicles() {
+    const response = await fetch('vehicles.json');
+    const vehicles = await response.json();
+    renderVehicles(vehicles);
+}
 
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    tabs.forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    const category = tab.getAttribute('data-category');
-
-    cards.forEach(card => {
-      if (category === 'all' || card.getAttribute('data-category') === category) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
+function renderVehicles(vehicles) {
+    const container = document.getElementById('vehicle-list');
+    container.innerHTML = '';
+    vehicles.forEach(vehicle => {
+        const card = `
+            <div class="vehicle-card">
+                <img src="\${vehicle.image}" alt="\${vehicle.name}">
+                <h3>\${vehicle.name}</h3>
+                <p>\${vehicle.price}</p>
+            </div>
+        `;
+        container.innerHTML += card;
     });
-  });
-});
+}
+
+async function filterVehicles(category) {
+    const response = await fetch('vehicles.json');
+    let vehicles = await response.json();
+    if (category !== 'All') {
+        vehicles = vehicles.filter(v => v.category === category);
+    }
+    renderVehicles(vehicles);
+}
+
+loadVehicles();
